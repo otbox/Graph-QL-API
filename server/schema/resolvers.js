@@ -28,7 +28,10 @@ const resolvers = {
     Mutation : {
         createUser: (parent, args) => {
             const user = args.input
-            const lastId = UserList[UserList.length - 1].id
+            let lastId = 0
+            if (UserList.length > 0){
+                lastId = UserList[UserList.length - 1].id
+            }
             user.id = lastId + 1
             UserList.push(user)
         },

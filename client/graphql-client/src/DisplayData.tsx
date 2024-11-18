@@ -1,5 +1,5 @@
 import { useQuery, gql, useLazyQuery, useMutation } from "@apollo/client"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const QUERY_ALL_USERS = gql`
     query getAllUser {
@@ -175,7 +175,7 @@ const DisplayObject : React.FC<DisplayObjectProps> = ({ object }) => {
 
 
 export default function DisplayData() {
-    const { data, loading,refetch, error } = useQuery(QUERY_ALL_USERS);
+    const { data, loading, refetch, error } = useQuery(QUERY_ALL_USERS);
     const { data: movieData } = useQuery(QUERY_ALL_MOVIES);
     const [searchMovie, setSearchMovie] = useState<String>();
     const [fetchMovie, { data: userSearched, error: MovieError }] = useLazyQuery(GET_USER_BYID);
