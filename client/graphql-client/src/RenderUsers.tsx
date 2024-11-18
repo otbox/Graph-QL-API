@@ -1,20 +1,11 @@
-import { gql, useQuery } from "@apollo/client"
+import { useQuery } from "@apollo/client"
 import { DeleteUserButton } from "./components/DeleteUserButton"
 import { EditUserDialog } from "./components/EditUserDialog"
 import { IUser } from "./App"
+import { QUERY_ALL_USERS } from "./schema/schema"
 
 export function RenderUsers(){
-    const QUERY_ALL_USERS = gql`
-        query getAllUser {
-        users {
-            id,
-            name,
-            age,
-            username,
-            nationality,
-            }
-        }
-    `
+
     const {loading, error, data} = useQuery(QUERY_ALL_USERS)
 
     if (loading){

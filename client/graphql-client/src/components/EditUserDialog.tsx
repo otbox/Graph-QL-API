@@ -10,8 +10,9 @@ import {
   import { Button } from './ui/button'
   import { Input } from './ui/input'
   import { Label } from '@radix-ui/react-label'
-import { useMutation, gql, useQuery } from "@apollo/client"
+import { useMutation, useQuery } from "@apollo/client"
 import { useState } from "react"
+import { UPDATE_USERNAME_MUTATION, QUERY_ALL_USERS } from "@/schema/schema"
 
 interface IEditUserDialog {
     userId: number
@@ -19,26 +20,7 @@ interface IEditUserDialog {
 }
 
 export function     EditUserDialog (props: IEditUserDialog){
-    const UPDATE_USERNAME_MUTATION = gql`
-        mutation updateUsername( $input: UpdateUsernameInput!) {
-            updateUsername(input: $input) {
-                id,
-                username
-            }
-    }   
-    `
 
-    const QUERY_ALL_USERS = gql`
-    query getAllUser {
-    users {
-        id,
-        name,
-        age,
-        username,
-        nationality,
-        }
-    }
-    `
     const { refetch } = useQuery(QUERY_ALL_USERS)
 
     const [updateUserName] = useMutation(UPDATE_USERNAME_MUTATION)

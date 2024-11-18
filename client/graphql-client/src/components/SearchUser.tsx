@@ -1,25 +1,15 @@
 import { useState } from "react"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
-import { useLazyQuery, gql } from "@apollo/client"
+import { useLazyQuery } from "@apollo/client"
 import { EditUserDialog } from "./EditUserDialog"
 import { DeleteUserButton } from "./DeleteUserButton"
+import { GET_USER_BYID } from "@/schema/schema"
 
 export function SearchUser(){
 
     const [userId, setUserId] = useState("")
-    
-    const GET_USER_BYID = gql`
-    query getUsers($userId: ID!) {
-        user(id: $userId) {
-            id,
-        name,
-        age,
-        username,
-        nationality,
-    }
-    }
-    `
+
     const [getUserById, { data, error }] = useLazyQuery(GET_USER_BYID);
 
     if (error){

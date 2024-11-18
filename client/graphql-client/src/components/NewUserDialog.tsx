@@ -11,29 +11,9 @@ import {
   import { Input } from './ui/input'
   import { Label } from '@radix-ui/react-label'
 
-import { useMutation, gql, useQuery } from "@apollo/client"
+import { useMutation, useQuery } from "@apollo/client"
 import { useState } from "react"
-
-const CREATE_USER_MUTATION = gql`
-    mutation createUser($input: createUserInput!){
-        createUser(input: $input) {
-        id,
-        name, 
-        }
-    }
-`
-
-const QUERY_ALL_USERS = gql`
-    query getAllUser {
-    users {
-        id,
-        name,
-        age,
-        username,
-        nationality,
-        }
-    }
-`
+import { CREATE_USER_MUTATION, QUERY_ALL_USERS } from "@/schema/schema"
 
 export function NewUserDialog (){
     const [ createUser ] = useMutation(CREATE_USER_MUTATION)
