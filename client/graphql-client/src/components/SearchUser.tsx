@@ -38,7 +38,7 @@ export function SearchUser(){
     return (
         <>
         <div style={{marginBottom: "1rem", width: "", display: "flex", gap: "20px", justifyContent: "space-between"}}>
-            <Input style={ { color: "black"} } onChange={(e) => { setUserId(e.target.value)}} value={userId.toString()}></Input>
+            <Input style={ { color: "white"} } onChange={(e) => { setUserId(e.target.value)}} value={userId.toString()}></Input>
             <Button onClick={() => getUserById({ variables: { userId: userId}})}>Pesquisar</Button>
         </div>
 

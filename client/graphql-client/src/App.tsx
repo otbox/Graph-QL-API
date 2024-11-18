@@ -26,7 +26,7 @@ function App() {
     <ApolloProvider client={client}>
       <h1 className='mb-10'>Welcome GraphQL client</h1>
       <div style={ { display: "flex"} }>
-        <aside style={ {width: "30%", marginTop: "10rem"} }>
+        <aside style={ {width: "20%", marginLeft: "10%", marginTop: "10rem"} }>
           <h2 className='mb-5 text-xl'>Buscar usuário por ID</h2>
         <SearchUser/> 
         </aside>

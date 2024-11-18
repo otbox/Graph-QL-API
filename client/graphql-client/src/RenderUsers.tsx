@@ -41,8 +41,8 @@ export function RenderUsers(){
                                 })
                             }
 
-                            <DeleteUserButton userId={Number(user.id)}></DeleteUserButton>
-                            <EditUserDialog username={user.username} userId={Number(user.id)}></EditUserDialog>
+                            <DeleteUserButton userId={Number(user.id)}/>
+                            <EditUserDialog username={user.username} userId={Number(user.id)}/>
                         </div>
                     })
                 }

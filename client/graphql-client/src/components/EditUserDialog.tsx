@@ -18,7 +18,7 @@ interface IEditUserDialog {
     username: string
 }
 
-export function EditUserDialog (props: IEditUserDialog){
+export function     EditUserDialog (props: IEditUserDialog){
     const UPDATE_USERNAME_MUTATION = gql`
         mutation updateUsername( $input: UpdateUsernameInput!) {
             updateUsername(input: $input) {
@@ -48,13 +48,13 @@ export function EditUserDialog (props: IEditUserDialog){
     console.log(username)
     return (
         <Dialog >
-            <DialogTrigger>Editar nome de usuário</DialogTrigger>
+            <DialogTrigger style={{border: "1px solid mediumvioletred", color: "mediumvioletred", fontWeight: 'bold'}}>Editar nome de usuário</DialogTrigger>
             <DialogContent style={ { backgroundColor: "#242424"}}>
                 <DialogHeader>
                 <DialogTitle style={ { color: "white" } }>Alterar nome de usuário</DialogTitle>
                 <div className='flex flex-col gap-2'>
                     <Label style={{ color: "white"}}>Nome de Usuário</Label>
-                    <Input style={{ color: "black"}} onChange={(e) => {setUserName(e.target.value)}} value={username}></Input>
+                    <Input style={{ color: "white"}} onChange={(e) => {setUserName(e.target.value)}} value={username}></Input>
                 </div>
 
                 </DialogHeader>
